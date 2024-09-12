@@ -1,0 +1,22 @@
+version: '3'
+services:
+  my-app:
+    image: glazedonuts616/flask-contacts-app:3.0
+    ports:
+      - 5052:5052
+    environment:
+      - DB_HOST=mysql
+      - DB_PORT=3306
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: Flask_DB
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  mysql-data:
