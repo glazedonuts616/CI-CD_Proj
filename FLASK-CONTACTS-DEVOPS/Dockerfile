@@ -13,3 +13,5 @@ ADD . /app
 
 # Add the sleep command to give MySQL time to start, then run migrate.py and app.py
 ENTRYPOINT ["sh", "-c", "sleep 20 && python migrate.py && python app.py"]
+
+CMD [ "echo", "new-script,txt" ]
