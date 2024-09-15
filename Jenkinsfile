@@ -43,6 +43,13 @@ pipeline {
                 }
             }
         }
+        stage('Stop Existing Containers') {
+            steps {
+                dir('FLASK-CONTACTS-DEVOPS') {
+                    sh 'docker-compose down'
+                }
+            }
+        }
         stage('Deploy with Docker Compose') {
             steps {
                  dir('FLASK-CONTACTS-DEVOPS') {
